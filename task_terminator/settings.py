@@ -78,8 +78,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "taskterminator",
-        "USER": "sophia",
-        "PASSWORD": "Aubrey12!",
+        "USER": "buck",
+        "PASSWORD": "tkealum216",
     }
 }
 

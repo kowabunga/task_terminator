@@ -16,14 +16,11 @@
             </ul>
             <ul>
               <!-- changes below -->
-              {% if user.is_authenticated %}
-
-                <li><a href="{% url 'home' %}">View All My Tasks</a></li>
+             
+                <li><a href="{% url 'tasks_create' %}">Create a Task</a></li>
+                <li><a href="{% url 'tasks_index' %}">View All My Tasks</a></li>
                 <!-- <li><a href="{% url 'logout' %}">Log Out</a></li> -->
-              {% else %}
-                <!-- <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                <li><a href="{% url 'login' %}">Log In</a></li> -->
-              {% endif %}
+                <li><a href="{% url 'login' %}">Log In</a></li>
             </ul>
           </div>
         </nav>

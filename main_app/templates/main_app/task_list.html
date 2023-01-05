@@ -5,9 +5,9 @@
 <h1>Task List</h1>
 
 
-{% for task in tasks %}
+{% for task in task_list %}
 <div>
-	<a href="{% url 'detail' task.id %}">
+	
 		<div>
 			<span>{{ task.title }}</span>
             <p> Due Date: {{ task.due_date }}</p>
