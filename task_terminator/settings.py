@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "main_app",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -76,7 +77,9 @@ WSGI_APPLICATION = "task_terminator.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "task_terminal",
+        "NAME": "taskterminator",
+        "USER": "anthony",
+        "PASSWORD": "k3R8E_+?",
     }
 }
 
@@ -117,9 +120,9 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-LOGIN_REDIRECT_URL = '/tasks/'
+LOGIN_REDIRECT_URL = "/tasks/"
 
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = "/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
