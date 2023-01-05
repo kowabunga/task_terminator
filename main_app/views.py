@@ -25,3 +25,12 @@ class TaskDetail(LoginRequiredMixin, DetailView):
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
     fields = "__all__"
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user 
+        return super().form_valid(form)
+
+
+class TaskDelete(LoginRequiredMixin, DeleteView):
+  model = Task
+  success_url = '/tasks/'
