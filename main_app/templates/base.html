@@ -1,37 +1,36 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-    <header class="navbar-fixed">
-        <nav>
-          <div class="nav-wrapper">
-            <ul>
-              <li><a href="/"> TaskTerminator</a></li>
-            </ul>
-            <ul>
-              <!-- changes below -->
-              {% if user.is_authenticated %}
+  <header class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <ul>
+          <li><a href="/"> TaskTerminator</a></li>
+        </ul>
+        <ul>
+          <!-- changes below -->
 
-                <li><a href="{% url 'home' %}">View All My Tasks</a></li>
-                <!-- <li><a href="{% url 'logout' %}">Log Out</a></li> -->
-              {% else %}
-                <!-- <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                <li><a href="{% url 'login' %}">Log In</a></li> -->
-              {% endif %}
-            </ul>
-          </div>
-        </nav>
-      </header>
-      <main class="container">
-        {% block content %}
-        {% endblock %}
-      </main>
+          <li><a href="{% url 'tasks_create' %}">Create a Task</a></li>
+          <li><a href="{% url 'tasks_index' %}">View All My Tasks</a></li>
+          <!-- <li><a href="{% url 'logout' %}">Log Out</a></li> -->
+          <li><a href="{% url 'login' %}">Log In</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    {% block content %}
+    {% endblock %}
+  </main>
 </body>
-</html>
 
+</html>
