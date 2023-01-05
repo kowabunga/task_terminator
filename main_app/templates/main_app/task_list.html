@@ -5,24 +5,27 @@
 <h1>Task List</h1>
 
 
-{% for task in task_list %}
-<div>
 
-  <div>
-    <span>
-      {{ task.title }}</span>
-    <p> Due Date:
-      {{ task.due_date }}
-    </p>
-    <p> Priority Level:
-      {{ task.priority_level }}
-    </p>
-    <p> Completed:
-      {{ task.completed }}
-    </p>
-  </div>
-  </a>
-</div>
+{% if task_list.count %}
+{% for task in task_list %}
+<a href="{% url 'detail' task.id %}">
+  <span>
+    {{ task.title }}</span>
+  <p> Due Date:
+    {{ task.due_date }}
+  </p>
+  <!-- THIS CAN BE DONE NICELY WITH CSS AND REMOVED -->
+  <p> Completed:
+    {{ task.completed }}
+  </p>
+  <!--  -->
+</a>
 {% endfor %}
+{% else %}
+<h1>Woops... nothing here</h1>
+<p>Why don't you add some tasks to do? Could it be you've already forgotten about them...</p>
+<a href="{% url 'task_create' %}">Add Task</a>
+{% endif %}
+
 
 {% endblock content %}
