@@ -1,10 +1,13 @@
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.forms import UserCreationForm
+
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.core.mail import send_mail
+
+from django.contrib.auth.forms import UserCreationForm
+from .forms import SignUpForm
 
 from .models import Task
 
@@ -23,23 +26,25 @@ def sign_up(request):
     if request.method == "POST":
         # This is how to create a 'user' form object
         # that includes the data from the browser
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             # This will add the user to the database
             user = form.save()
+            print(user)
+            # user.username = user.first_name
             # This is how we log a user in via code
             send_email(
                 "Welcome to Task Terminator!",
                 "Thank you for signing up to task terminator. Take a look around the site to see what it can do for you.",
                 # replace this with user.email
-                "taskterminator@outlook.com",
+                user.email,
             )
             login(request, user)
             return redirect("tasks_index")
         else:
             error_message = "Invalid sign up - try again"
     # A bad POST or a GET request, so render signup.html with an empty form
-    form = UserCreationForm()
+    form = SignUpForm()
     context = {"form": form, "error_message": error_message}
 
     return render(request, "registration/signup.html", context)
