@@ -8,18 +8,24 @@
 
 {% if task_list.count %}
 {% for task in task_list %}
-<a href="{% url 'detail' task.id %}">
-  <span>
-    {{ task.title }}</span>
-  <p> Due Date:
-    {{ task.due_date }}
-  </p>
-  <!-- THIS CAN BE DONE NICELY WITH CSS AND REMOVED -->
-  <p> Completed:
-    {{ task.completed }}
-  </p>
-  <!--  -->
+<div class="row d-flex justify-content-center">
+
+<a class="card w-50 mb-3 p-2" href="{% url 'detail' task.id %}">
+	<div class="card-body">
+		<h1 class="card-title">
+			{{ task.title }}</h1>
+		<p> Due Date:
+			{{ task.due_date }}
+		</p>
+		<p> Priority Level:
+			{{ task.priority_level }}
+		</p>
+		<p> Completed:
+			{{ task.completed }}
+		</p>
+	</div>
 </a>
+</div>
 {% endfor %}
 {% else %}
 <h1>Woops... nothing here</h1>

@@ -16,38 +16,27 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
 </head>
-
 <body>
-  <header class="navbar-fixed">
-    <nav class="navbar navbar-light" style="background-color: #6610f2">
-
+    <nav class="navbar navbar-light" style="background-color: #6f42c1">
+        <!-- Container wrapper -->
+        <div class="container">
+         
+          <h1> Task Terminator</h1>
         <!-- Navbar content -->
     
       <div class="nav-wrapper">
-        <ul>
-          <h1>Task Terminator</h1>
-        </ul>
-        <ul>
-          <!-- changes below -->
-
-
+    
           {% if user.is_authenticated %}
-          <li>
-            <a href="{% url 'task_create' %}">Create a Task</a>
-          </li>
-          <li>
-            <a href="{% url 'tasks_index' %}">View All My Tasks</a>
-          </li>
-          <li>
-            <a href="{% url 'logout' %}">Log Out</a>
-          </li>
-          {% else %}
-          <li>
+          <div class="d-flex flex-row bd-highlight mb-3">
+            <a button class="p-2 bd-highlight" href="{% url 'task_create' %}">Create a Task</a>
+            <a button class="p-2 bd-highlight" href="{% url 'tasks_index' %}">View All My Tasks</a>
+            <a button class="p-2 bd-highlight" href="{% url 'logout' %}">Log Out</a>
+          
+            {% else %}
+        
             <a class= "btn btn-success" href="{% url 'login' %}">Log In</a>
 
-          </li>
           {% endif %}
-        </ul>
       </div>
     </nav>
   </header>
