@@ -4,8 +4,14 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.core.mail import send_mail
 
 from .models import Task
+
+
+def send_email(subject, message, to_email, from_email="taskterminator@outlook.com"):
+    send_mail(subject, message, from_email, [to_email], fail_silently=False)
+
 
 # Create your views here.
 def home(request):
@@ -22,6 +28,12 @@ def sign_up(request):
             # This will add the user to the database
             user = form.save()
             # This is how we log a user in via code
+            send_email(
+                "Welcome to Task Terminator!",
+                "Thank you for signing up to task terminator. Take a look around the site to see what it can do for you.",
+                # replace this with user.email
+                "taskterminator@outlook.com",
+            )
             login(request, user)
             return redirect("tasks_index")
         else:
@@ -29,6 +41,7 @@ def sign_up(request):
     # A bad POST or a GET request, so render signup.html with an empty form
     form = UserCreationForm()
     context = {"form": form, "error_message": error_message}
+
     return render(request, "registration/signup.html", context)
 
 
