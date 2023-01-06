@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.db import models
+from django.core.validators import RegexValidator
 
 
 class SignUpForm(UserCreationForm):
@@ -11,6 +12,7 @@ class SignUpForm(UserCreationForm):
             "first_name",
             "last_name",
             "email",
+            
         ]
 
         # This function is courtsey of https://stackoverflow.com/a/45623045/9666890
