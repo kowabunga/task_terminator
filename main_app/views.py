@@ -1,14 +1,17 @@
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.core.mail import send_mail
 
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
 from .forms import SignUpForm
 import datetime
+
 
 from .models import Task
 
@@ -86,3 +89,11 @@ class TaskUpdate(LoginRequiredMixin, UpdateView):
 class TaskDelete(LoginRequiredMixin, DeleteView):
     model = Task
     success_url = "/tasks/"
+
+
+@login_required
+def user_profile(request):
+
+    tasks = Task.objects.filter(user=request.user)
+
+    return render(request, "user/index.html", {"user": request.user, "tasks": tasks})
