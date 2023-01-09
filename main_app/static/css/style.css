@@ -12,6 +12,11 @@ h1 {
   font-family: 'Quicksand', sans-serif;
 }
 
+.dropdown-menu li>a:hover,
+.dropdown-menu li>a:focus {
+  background-color: #2faffe;
+}
+
 @media screen and (max-width:991px) {
   #nav-btn {
     width: 50%;
