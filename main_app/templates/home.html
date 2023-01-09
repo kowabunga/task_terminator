@@ -2,15 +2,22 @@
 
 
 {% block content %}
-<div class= "text-center position-absolute top-50 start-50 translate-middle">
-<h1>Home Page</h1>
-<p>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni odio accusamus excepturi quasi, reiciendis eaque impedit doloremque quaerat placeat sed in consequatur repellat voluptate? Ipsa libero et dignissimos quidem consectetur.
-</p>
-<p>
-  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum minima molestiae, in beatae quidem architecto quasi delectus neque perspiciatis modi!
-</p>
-<a class="btn btn-sm btn btn-success" href="{% url 'sign_up'%}">Join Now!</a>
+<div class="text-center mt-5 pt-5">
+  <h1 class="display-1">Task Terminator</h1>
+  <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi eos, deleniti dolor aperiam nostrum laboriosam.</p>
+
+  <p class="py-2">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni odio accusamus excepturi quasi, reiciendis eaque impedit doloremque quaerat placeat sed in consequatur repellat voluptate? Ipsa libero et dignissimos quidem consectetur.
+  </p>
+
+
+  {% if not user.is_authenticated %}
+  <a class="btn btn btn btn-success" href="{% url 'sign_up'%}">Join Now!</a>
+
+  {% else %}
+  <a class="btn btn btn btn-success" href="{% url 'tasks_index' %}">View Tasks</a>
+  {% endif %}
+
 </div>
 
 {% endblock content %}

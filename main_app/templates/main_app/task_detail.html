@@ -6,38 +6,38 @@
 <br>
 <br>
 <div class="row d-flex justify-content-center">
-  <div class="card w-50 mb- p-2 text-center border border-secondary mb-3 border border-2 text-dark text-decoration-none">
-        <h1 class="card-title text-decoration-underline">
-          {{ task.title }}
-        </h1>
-        <p>
-          <strong>Description:</strong>
-          {{ task.description }}
-        </p>
-        <p>
-          <strong>Date Added:</strong>
-          {{ task.date_added }}
-        </p>
-        <p>
-          <strong>Due Date:</strong>
-          {{ task.due_date }}
-        </p>
-        <p>
-          <strong>Priority Level:</strong>
-          {{ task.priority }}
-        </p>
-        <p>
-          <strong>Completed:</strong>
-          {{ task.completed }}
-        </p>
+  <div class="card w-50 mb-3 p-2 text-center border text-dark text-decoration-none">
+    <h1 class="card-title text-decoration-underline">
+      {{ task.title }}
+    </h1>
+    <p>
+      <strong>Description:</strong>
+      {{ task.description }}
+    </p>
+    <p>
+      <strong>Date Added:</strong>
+      {{ task.date_added }}
+    </p>
+    <p>
+      <strong>Due Date:</strong>
+      {{ task.due_date }}
+    </p>
+    <p>
+      <strong>Priority Level:</strong>
+      {{ task.priority }}
+    </p>
+    <p>
+      <strong>Completed:</strong>
+      {{ task.completed }}
+    </p>
 
 
-        <div class="card-action text-center">
-          <a class="btn btn-sm btn btn-danger" href="{% url 'task_delete' task.id %}">Terminate</a>
-          <a class="btn btn-sm btn btn-warning" href="{% url 'task_update' task.id %}">Edit Task</a>
-        </div>
+    <div class="card-action text-center">
+      <a class="btn btn-danger" href="{% url 'task_delete' task.id %}">Terminate</a>
+      <a class="btn btn-warning" href="{% url 'task_update' task.id %}">Edit Task</a>
     </div>
   </div>
+</div>
 
 
 

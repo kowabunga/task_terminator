@@ -16,40 +16,49 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-light" style="background-color: #0995ed">
-    <img class="nav-link" src="https://i.imgur.com/hO5i8oe.png" alt="" width="80" height="60" class="d-inline-block align-text-top">
-    <!-- Container wrapper -->
-    <div class="container text-white">
-      <h1> Task Terminator</h1>
 
 
-      <!-- Navbar content -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0995ed">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><img class="nav-link" src="https://i.imgur.com/hO5i8oe.png" alt="" width="80" height="60" class="d-inline-block align-text-top">
+      </a>
+      <span class="h1 text-white">Task Terminator</span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          {% if user.is_authenticated %}
+          <li class="nav-item me-3">
+            <a class="btn btn-outline-light" id='nav-btn' href="{% url 'task_create' %}">Create a Task</a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="btn btn-outline-light" id='nav-btn' href="{% url 'tasks_index' %}">View All My Tasks</a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="btn btn-outline-light" id='nav-btn' href="{% url 'logout' %}">Log Out</a>
+          </li>
+          {% else %}
 
-      <div class="nav-wrapper navbar-nav d-flex flex-row d-grid gap-3">
+          <li class="nav-item">
+            <a class="btn btn-outline-light" href="{% url 'login' %}">Log In</a>
+          </li>
+          {% endif %}
+        </ul>
 
-        {% if user.is_authenticated %}
-
-        <a button class="btn btn-secondary" href="{% url 'task_create' %}">Create a Task</a>
-        <a button class="btn btn-secondary" href="{% url 'tasks_index' %}">View All My Tasks</a>
-        <a button class="btn btn-secondary" href="{% url 'logout' %}">Log Out</a>
-
-        {% else %}
-
-        <a class="btn btn-secondary" href="{% url 'login' %}">Log In</a>
-        {% endif %}
       </div>
+    </div>
   </nav>
   </header>
 
-  <main class="container">
+  <main class="container mb-3">
     {% block content %}
-    {% endblock %}
+    {% endblock content %}
   </main>
 
-
-
-
-
+  <footer class="text-center text-white fixed-bottom" style="background-color: #0995ed;">
+    © 2023 Copyright: Task Terminator
+  </footer>
 </body>
 
 </html>

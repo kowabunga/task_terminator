@@ -6,29 +6,55 @@
 <br>
 <br>
 <div class="text-center">
-	<h1>Task List</h1>
+  <h1 class="mb-5">Task List</h1>
 </div>
 
 {% if task_list.count %}
 {% for task in task_list %}
 
 <div class="row d-flex justify-content-center">
-	<a class="card w-50 mb-3 p-2 text-center border border-secondary mb-3 border border-2 text-dark text-decoration-none"
-		href="{% url 'detail' task.id %}"> 
-		<div class="card-body">
-			<h1 class="card-title">
-				{{ task.title }}</h1>
-			<p> Due Date:
-				{{ task.due_date }}
-			</p>
-			<p> Priority Level:
-				{{ task.priority }}
-			</p>
-			<p> Completed:
-				{{ task.completed }}
-			</p>
-		</div>
-	</a>
+  <a class="card w-50 mb-3 p-2 text-center border mb-3 text-dark text-decoration-none position-relative
+  {% if task.completed %}
+    border-success
+  {% else %}
+    border-danger
+  {% endif %}
+    " href="{% url 'detail' task.id %}">
+    <div class="card-body">
+      <div>
+        <span class="position-absolute rounded-pill top-0 start-100 me-5 translate-middle badge
+      {% if task.completed %}
+        bg-success
+      {% elif task.priority == 1 %}
+        bg-secondary
+      {% elif task.priority == 2 %}
+        bg-warning
+      {% elif task.priority == 3 %}
+        bg-danger
+      {% endif %}
+        
+      ">
+
+          {% if task.completed %}
+          Task Complete
+          {% else %}
+          Priority {{task.priority}}
+          {% endif %}
+
+        </span>
+        <span class="visually-hidden">Task Priority</span>
+      </div>
+      <h1 class="card-title">
+        {{ task.title }}
+      </h1>
+      <p> Due Date:
+        {{ task.due_date }}
+      </p>
+      <p> Priority Level:
+        {{ task.priority }}
+      </p>
+    </div>
+  </a>
 </div>
 {% endfor %}
 {% else %}
