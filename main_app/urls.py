@@ -9,6 +9,8 @@ urlpatterns = [
     path("tasks/create/", views.TaskCreate.as_view(), name="task_create"),
     path("tasks/<int:pk>/delete/", views.TaskDelete.as_view(), name="task_delete"),
     path("tasks/<int:pk>/update/", views.TaskUpdate.as_view(), name="task_update"),
-    path("accounts/sign_up", views.sign_up, name="sign_up"),
-    path("accounts/profile",views.user_profile,name="user_profile")
+    path("accounts/sign_up/", views.sign_up, name="sign_up"),
+    path("accounts/profile/", views.user_profile_page, name="user_profile"),
+    path("change_password/", views.UpdatePassword.as_view(), name="update_password"),
+    path("password_edit_success/", views.password_edit_success, name="password_edit_success"),
 ]

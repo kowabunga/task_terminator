@@ -1,17 +1,15 @@
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.forms import PasswordChangeForm
 
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.core.mail import send_mail
 
-from django.contrib.auth.models import User
-
 from .forms import SignUpForm
-import datetime
-
 
 from .models import Task
 
@@ -35,7 +33,6 @@ def sign_up(request):
             # This will add the user to the database
             user = form.save()
             print(user)
-            # user.username = user.first_name
             # This is how we log a user in via code
             send_email(
                 "Welcome to Task Terminator!",
@@ -92,8 +89,26 @@ class TaskDelete(LoginRequiredMixin, DeleteView):
 
 
 @login_required
-def user_profile(request):
+def user_profile_page(request):
 
     tasks = Task.objects.filter(user=request.user)
 
     return render(request, "user/index.html", {"user": request.user, "tasks": tasks})
+
+
+class UpdatePassword(LoginRequiredMixin, PasswordChangeView):
+    form_class = PasswordChangeForm
+    success_url = "/password_edit_success"
+    template_name = "main_app/change_password.html"
+
+
+# This acts as a "redirect" url for the password change success url
+# This "inbetween" route allows us to send the email confirming to the user that their password has been changed
+def password_edit_success(request):
+    # subject, message, to_email
+    send_email(
+        "Password Updated",
+        "Thank you for using Task Terminator. Your password has been successfully updated.",
+        request.user.email,
+    )
+    return redirect("user_profile")

@@ -2,7 +2,6 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.db import models
-from django.core.validators import RegexValidator
 
 
 class SignUpForm(UserCreationForm):
@@ -12,7 +11,6 @@ class SignUpForm(UserCreationForm):
             "first_name",
             "last_name",
             "email",
-            
         ]
 
         # This function is courtsey of https://stackoverflow.com/a/45623045/9666890
@@ -21,6 +19,6 @@ class SignUpForm(UserCreationForm):
         # Then, runs the function before save so there is a username when it is saved
         def set_username(sender, instance, **kwargs):
             if not instance.username:
-                instance.username = f"{instance.first_name.capitalize()} {instance.last_name.capitalize()}"
+                instance.username = instance.email
 
         models.signals.pre_save.connect(set_username, sender=User)

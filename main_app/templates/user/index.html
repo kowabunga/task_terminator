@@ -12,12 +12,22 @@
     <h2>Personal Info</h2>
     <p class="text-capitalize">{{user.first_name}} {{user.last_name}}</p>
     <p>{{user.email}}</p>
+    <a href="{% url 'update_password' %}" class="btn btn-secondary">Edit Info</a>
   </div>
   <div class="col">
     <h2>Tasks</h2>
 
-    {% if not tasks.count %}
+    {% if tasks.count %}
     <p>You have {{tasks.count}} tasks in your to-do list. Lets get some done!</p>
+
+    <ul class="list-group">
+      {% for task in tasks %}
+      <li class="list-group-item">
+        <p>{{task.title}}<br>Due: {{task.due_date}}</p>
+      </li>
+      {% endfor %}
+    </ul>
+
     {% else %}
     <p>Hey, you don't have any tasks. Why not <a href="{% url 'task_create' %}">create some</a>?</p>
     {% endif %}
