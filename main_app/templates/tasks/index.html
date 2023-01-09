@@ -3,26 +3,29 @@
 
 {% block content %}
 <h1>Task List</h1>
-
-
-{% for task in tasks %}
-<div>
-  <a href="{% url 'detail' task.id %}">
-    <div>
-      <span>
-        {{ task.title }}</span>
-      <p> Due Date:
-        {{ task.due_date }}
-      </p>
-      <p> Priority Level:
-        {{ task.priority_level }}
-      </p>
-      <p> Completed:
-        {{ task.completed }}
-      </p>
-    </div>
-  </a>
+<div class="row">
+    {% for task in tasks %}
+    <a class="card" href="{% url 'detail' task.id %}">
+        <div class="card-body">
+            <h1 class="card-title">
+                {{ task.title }}</h1>
+            <p> Due Date:
+                {{ task.due_date }}
+            </p>
+            <p> Priority Level:
+                {{ task.priority_level }}
+            </p>
+            <p> Completed:
+                {{ task.completed }}
+            </p>
+        </div>
+    </a>
 </div>
+
+
+
+
+
 {% endfor %}
 
 

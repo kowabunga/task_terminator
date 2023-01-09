@@ -6,43 +6,47 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Task Terminator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
-  <header class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <ul>
-          <li><a href="/"> TaskTerminator</a></li>
-        </ul>
-        <ul>
-          <!-- changes below -->
-
-
+    <nav class="navbar navbar-light" style="background-color: #0995ed">
+        <img class="nav-link" src="https://i.imgur.com/hO5i8oe.png" alt="" width="80" height="60" class="d-inline-block align-text-top">
+        <!-- Container wrapper -->
+        <div class="container text-white">
+        <h1> Task Terminator</h1>
+    
+    
+   <!-- Navbar content -->
+    
+      <div class="nav-wrapper navbar-nav d-flex flex-row d-grid gap-3">
+    
           {% if user.is_authenticated %}
-          <li>
-            <a href="{% url 'task_create' %}">Create a Task</a>
-          </li>
-          <li>
-            <a href="{% url 'tasks_index' %}">View All My Tasks</a>
-          </li>
-          <li>
-            <a href="{% url 'logout' %}">Log Out</a>
-          </li>
-          {% else %}
-          <li>
-            <a href="{% url 'login' %}">Log In</a>
-          </li>
+    
+            <a button class="btn btn-secondary" href="{% url 'task_create' %}">Create a Task</a>
+            <a button class="btn btn-secondary" href="{% url 'tasks_index' %}">View All My Tasks</a> 
+            <a button class="btn btn-secondary" href="{% url 'logout' %}">Log Out</a>
+          
+            {% else %}
+        
+            <a class= "btn btn-secondary" href="{% url 'login' %}">Log In</a>
           {% endif %}
-        </ul>
       </div>
     </nav>
   </header>
-  <main class="container">
+
     {% block content %}
     {% endblock %}
-  </main>
-</body>
 
+
+
+  
+
+</body>
 </html>
