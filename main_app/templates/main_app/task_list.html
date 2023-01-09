@@ -2,29 +2,33 @@
 
 
 {% block content %}
-<h1>Task List</h1>
-
-
+<br>
+<br>
+<br>
+<div class="text-center">
+	<h1>Task List</h1>
+</div>
 
 {% if task_list.count %}
 {% for task in task_list %}
-<div class="row d-flex justify-content-center">
 
-<a class="card w-50 mb-3 p-2" href="{% url 'detail' task.id %}">
-	<div class="card-body">
-		<h1 class="card-title">
-			{{ task.title }}</h1>
-		<p> Due Date:
-			{{ task.due_date }}
-		</p>
-		<p> Priority Level:
-			{{ task.priority_level }}
-		</p>
-		<p> Completed:
-			{{ task.completed }}
-		</p>
-	</div>
-</a>
+<div class="row d-flex justify-content-center">
+	<a class="card w-50 mb-3 p-2 text-center border border-secondary mb-3 border border-2 text-dark text-decoration-none"
+		href="{% url 'detail' task.id %}"> 
+		<div class="card-body">
+			<h1 class="card-title">
+				{{ task.title }}</h1>
+			<p> Due Date:
+				{{ task.due_date }}
+			</p>
+			<p> Priority Level:
+				{{ task.priority }}
+			</p>
+			<p> Completed:
+				{{ task.completed }}
+			</p>
+		</div>
+	</a>
 </div>
 {% endfor %}
 {% else %}

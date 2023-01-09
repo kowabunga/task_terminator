@@ -2,16 +2,24 @@
 
 
 {% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="row d-flex justify-content-center">
+	<div class="card w-50 mb-3 p-2 text-center border border-secondary mb-3 border border-2 text-dark text-decoration-none">
+    <h1>Terminate a Task</h1>
 
-<h1>Terminate a Task</h1>
+    <h4>Are you sure you want to terminate? <span class="teal-text">
+            {{ object.name }}</span></h4>
 
-<h4>Are you sure you want to terminate <span class="teal-text">
-    {{ object.name }}</span></h4>
-
-<form action="" method="POST">
-  {% csrf_token %}
-  <input type="submit" value="Yes - Terminate!" class="btn">
-  <a href="{% url 'detail' task.id%}">Cancel</a>
-</form>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Yes - Terminate!" class=" btn btn btn-sm btn btn-danger">
+        <a class="btn btn btn-sm btn btn-warning" href="{% url 'detail' task.id%}">Cancel</a>
+    </form>
+</div>
+</div>
 
 {% endblock content %}

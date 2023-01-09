@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<br>
+<br>
+<br>
+<br>
 <div class="row d-flex justify-content-center">
-    <div class="card w-50 mb-3 p-2" style="width: 38rem;">
-      <div class ="card text-white bg-success mb-3">
-      <div class="card-body">
-        <h1 class="card-title">
+  <div class="card w-50 mb- p-2 text-center border border-secondary mb-3 border border-2 text-dark text-decoration-none">
+        <h1 class="card-title text-decoration-underline">
           {{ task.title }}
         </h1>
         <p>
@@ -29,15 +31,14 @@
           {{ task.completed }}
         </p>
 
-      </div>
-    </div>
-      <div class="card-action">
-        <a href="{% url 'task_delete' task.id %}">Terminate</a>
-        <a href="{% url 'task_update' task.id %}">Edit Task</a>
-      </div>
+
+        <div class="card-action text-center">
+          <a class="btn btn-sm btn btn-danger" href="{% url 'task_delete' task.id %}">Terminate</a>
+          <a class="btn btn-sm btn btn-warning" href="{% url 'task_update' task.id %}">Edit Task</a>
+        </div>
     </div>
   </div>
-</div>
+
 
 
 {% endblock content %}
