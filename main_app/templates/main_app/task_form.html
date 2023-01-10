@@ -1,4 +1,13 @@
 {% extends 'base.html' %}
+{% block breadcrumbs %}
+<li class="active breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+<li class="active breadcrumb-item"><a href="{% url 'tasks_index' %}">All Tasks</a></li>
+
+{% if object %}
+<li class="active breadcrumb-item">Edit Task</li>
+{% endif %}
+<li class="active breadcrumb-item">Create Task</li>
+{% endblock breadcrumbs %}
 
 {% block content %}
 {% load crispy_forms_tags %}

@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
-
+{% block breadcrumbs %}
+<li class="active breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+<li class="active breadcrumb-item">Task List</li>
+{% endblock breadcrumbs %}
 
 {% block content %}
 <br>
@@ -12,13 +15,14 @@
 {% if task_list.count %}
 
 
+<h2 class="mb-3">Incomplete Tasks</h2>
 {% for task in task_list %}
 
 {% if not task.completed %}
 
-<h2 class="mb-3">Incomplete Tasks</h2>
 
-<div class="row d-flex justify-content-center mb-5">
+
+<div class="row d-flex justify-content-center mb-2">
   <a class="card w-50 p-2 text-center border mb-3 text-dark text-decoration-none position-relative
   {% if task.completed %}
     border-success comp-success-hover
@@ -65,13 +69,13 @@
 {% endif %}
 {% endfor %}
 
+<h2 class="mb-3">Completed Tasks</h2>
 {% for task in task_list %}
 
 {% if task.completed %}
-<h2 class="mb-3">Completed Tasks</h2>
 
 
-<div class="row d-flex justify-content-center mb-5">
+<div class="row d-flex justify-content-center mb-2">
   <a class="card w-50 mb-3 p-2 text-center border mb-3 text-dark text-decoration-none position-relative
   {% if task.completed %}
     border-success comp-success-hover
