@@ -65,7 +65,7 @@ class TaskDetail(LoginRequiredMixin, DetailView):
 
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
-    fields = ["title", "description", "user", "due_date", "priority"]
+    fields = ["title", "description", "due_date", "priority"]
 
     def form_valid(self, form):
         form.instance.user = self.request.user
