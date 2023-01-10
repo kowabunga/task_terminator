@@ -12,9 +12,18 @@ h1 {
   font-family: 'Quicksand', sans-serif;
 }
 
-.dropdown-menu li>a:hover,
-.dropdown-menu li>a:focus {
+.dropdown-menu li>a:hover {
   background-color: #2faffe;
+}
+
+.comp-success-hover:hover {
+  transition: .1s ease-in;
+  border: 1px solid #198754 !important;
+}
+
+.inc-success-hover:hover {
+  transition: .1s ease-in;
+  border: 1px solid #ff0000 !important;
 }
 
 @media screen and (max-width:991px) {

@@ -12,7 +12,7 @@
     <h2>Personal Info</h2>
     <p class="text-capitalize">{{user.first_name}} {{user.last_name}}</p>
     <p>{{user.email}}</p>
-    <a href="{% url 'update_password' %}" class="btn btn-secondary">Edit Info</a>
+    <a href="{% url 'update_password' %}" class="btn btn-secondary mb-2">Edit Password</a>
   </div>
   <div class="col">
     <h2>Tasks</h2>
@@ -22,9 +22,16 @@
 
     <ul class="list-group">
       {% for task in tasks %}
-      <li class="list-group-item">
-        <p>{{task.title}}<br>Due: {{task.due_date}}</p>
-      </li>
+      <a href="{% url 'detail' task.id %}" class="text-decoration-none border
+      {% if task.completed %}
+        border-success comp-success-hover
+      {% else %}
+        border-danger inc-success-hover
+      {% endif %}">
+        <li class="list-group-item">
+          <p>{{task.title}}<br>Due: {{task.due_date}}</p>
+        </li>
+      </a>
       {% endfor %}
     </ul>
 
