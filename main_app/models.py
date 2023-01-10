@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import User
+from datetime import datetime
 from twilio.rest import Client
 import environ
 
@@ -16,8 +17,8 @@ class Task(models.Model):
     title = models.CharField(max_length=150)
     description = models.TextField(max_length=250)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    completed = models.BooleanField()
-    date_added = models.DateTimeField()
+    completed = models.BooleanField(default=False)
+    date_added = models.DateTimeField(default=datetime.now())
     due_date = models.DateTimeField()
     priority = models.IntegerField(default=1, validators=[MaxValueValidator(3), MinValueValidator(1)])
 
