@@ -12,6 +12,7 @@
     <h2>Personal Info</h2>
     <p class="text-capitalize">{{user.first_name}} {{user.last_name}}</p>
     <p>{{user.email}}</p>
+    <a href="{% url 'update_user' %}" class="btn btn-secondary mb-2">Edit Info</a>
     <a href="{% url 'update_password' %}" class="btn btn-secondary mb-2">Edit Password</a>
   </div>
   <div class="col">

@@ -9,7 +9,7 @@ from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.core.mail import send_mail
 
-from .forms import SignUpForm
+from .forms import SignUpForm, UpdateUserForm
 
 from .models import Task
 
@@ -112,3 +112,33 @@ def password_edit_success(request):
         request.user.email,
     )
     return redirect("user_profile")
+
+
+@login_required
+def update_user(request):
+    error_message = ""
+    user = request.user
+    if request.method == "POST":
+        # check if form is valid
+        form = UpdateUserForm(request.POST)
+        if form.is_valid():
+            # if form is valid, replace value of "user.x" with form submitted "request.POST.x" and save the user, thereby updating it
+            user.first_name = request.POST["first_name"]
+            user.last_name = request.POST["last_name"]
+            user.email = request.POST["email"]
+            user.save()
+
+            send_email(
+                "User Updated",
+                "Thank you for using Task Terminator. The information you requested be updated has been updated.",
+                user.email,
+            )
+
+            return redirect("user_profile")
+        else:
+            error_message = "Invalid update - try again"
+    # A bad POST or a GET request, so render signup.html with an empty form
+    form = UpdateUserForm(initial={"first_name": user.first_name, "last_name": user.last_name, "email": user.email})
+    context = {"form": form, "error_message": error_message}
+
+    return render(request, "user/update.html", context)

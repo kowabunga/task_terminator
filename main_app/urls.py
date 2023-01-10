@@ -12,5 +12,6 @@ urlpatterns = [
     path("accounts/sign_up/", views.sign_up, name="sign_up"),
     path("accounts/profile/", views.user_profile_page, name="user_profile"),
     path("change_password/", views.UpdatePassword.as_view(), name="update_password"),
+    path("update_user/", views.update_user, name="update_user"),
     path("password_edit_success/", views.password_edit_success, name="password_edit_success"),
 ]

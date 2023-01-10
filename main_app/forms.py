@@ -22,3 +22,16 @@ class SignUpForm(UserCreationForm):
                 instance.username = instance.email
 
         models.signals.pre_save.connect(set_username, sender=User)
+
+
+class UpdateUserForm(forms.Form):
+    # class Meta:
+    #     model = User
+    #     fields = [
+    #         "first_name",
+    #         "last_name",
+    #         "email",
+    #     ]
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+    email = forms.EmailField()

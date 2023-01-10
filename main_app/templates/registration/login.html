@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 
 <div class="text-center position-absolute top-50 start-50 translate-middle">
-  <h1>Log In</h1>
+  <h1 class="mb-3">Log In</h1>
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     {{ form|crispy }}
