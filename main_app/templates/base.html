@@ -58,6 +58,19 @@
   </nav>
   </header>
 
+
+<nav class="ms-3 mt-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        {% block breadcrumbs %}
+        {% endblock breadcrumbs %}
+    </ol>
+  </nav>
+    
+
+    
+
+
+
   <main class="container mb-3">
     {% block content %}
     {% endblock content %}
