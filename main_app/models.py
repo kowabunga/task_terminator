@@ -29,7 +29,7 @@ class Task(models.Model):
         return reverse("detail", kwargs={"pk": self.id})
 
     class Meta:
-        ordering = ["-due_date"]
+        ordering = ["due_date", "-priority"]
 
     def save(self, *args, **kwargs):
 
