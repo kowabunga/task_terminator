@@ -23,7 +23,7 @@
 
     <ul class="list-group">
       {% for task in tasks %}
-      <a href="{% url 'detail' task.id %}" class="text-decoration-none border
+      <a href="{% url 'detail' task.id %}" class="text-decoration-none border mb-2
       {% if task.completed %}
         border-success comp-success-hover
       {% else %}
