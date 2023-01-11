@@ -3,7 +3,7 @@
 {% block breadcrumbs %}
 <li class="active breadcrumb-item">Profile</li>
 {% endblock breadcrumbs %}
-  
+
 
 {% block content %}
 <div class="mt-3 ">
@@ -25,8 +25,13 @@
     {% if tasks.count %}
     <p>You have {{tasks.count}} tasks in your to-do list. Lets get some done!</p>
 
-    <ul class="list-group">
-      {% for task in tasks %}
+    <ul class="list-group">{% for task in tasks %}
+
+      {% if not task.completed %}
+
+
+
+
       <a href="{% url 'detail' task.id %}" class="text-decoration-none border mb-2
       {% if task.completed %}
         border-success comp-success-hover
@@ -37,6 +42,27 @@
           <p>{{task.title}}<br>Due: {{task.due_date}}</p>
         </li>
       </a>
+      {% endif %}
+      {% endfor %}
+
+      <h2 class="my-3">Completed Tasks</h2>
+      {% for task in tasks %}
+
+      {% if task.completed %}
+
+
+
+      <a href="{% url 'detail' task.id %}" class="text-decoration-none border mb-2
+      {% if task.completed %}
+        border-success comp-success-hover
+      {% else %}
+        border-danger inc-success-hover
+      {% endif %}">
+        <li class="list-group-item">
+          <p>{{task.title}}<br>Due: {{task.due_date}}</p>
+        </li>
+      </a>
+      {% endif %}
       {% endfor %}
     </ul>
 
