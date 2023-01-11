@@ -20,40 +20,51 @@ If a task needs to be completed the card will be outlined in red until it is ult
 ## How To Use/Wireframe (Images Attached):
 - - -
 1. Homepage/Landing Page:
-   ![homePage](main_app/static/homePage.png)
+   ![homePage](main_app/static/homepage.png)
    When the user reaches the applications homepage, they will have the option to "Join Now" or "Log In".
   
 
 2. Join Now:
-   ![joinNow](main_app/static/css/joinNow.png)
+   ![joinNow](main_app/static/joinNow.png)
     The user will be able to create an acocunt to use the application on the "Sign Up" page. 
    
 
 3. Log In Page:
-    ![logIn](main_app/static/css/logIn.png)
+    ![logIn](main_app/static/logIn.png)
     If the user already has an account, the user will be able to log in with their credentials. 
     
+4. Profile Page
+ ![profilePage](main_app/static/profilePage.png)
+   The user will be able to view their profile page which will display their task list and personal information. 
 
-4. Create a New Task:
-   ![createTask](main_app/static/css/createTask.png)
+5. Update User Page
+   ![updateUser](main_app/static/updateUser.png)
+   The user will be able to make changes to their first and last name as well as their email address. 
+
+6. Update User Password
+   ![updatePassword](main_app/static/updatePw.png)
+   The user will be able to chnge their password if necessary.
+   
+7. Create a New Task:
+   ![createTask](main_app/static/createTask.png)
    The user will be able to create a new task detailing the title, description, select the user adding the task, the completion status, the date added, the task due date and priority level. 
 
-5. View All Tasks:
-    ![viewTasks](main_app/static/viewAllTasks.png)
+8.  View All Tasks:
+    ![viewTasks](main_app/static/viewAllTask.png)
     Users will be able to view all of their tasks on the "View Task List" page with specific details regarding each task will be displayed.  
 
-6. Task Details:
-   ![taskDetails](main_app/static/css/taskDetails.png)
+9.  Task Details:
+   ![taskDetails](main_app/static/taskDetails.png)
    The user can view the task details for each task where it will allow the user to terminate or edit a task. 
   
 
-7. Edit Task:
+10. Edit Task:
    ![editTask](main_app/static/editTask.png)
    On the Edit page, a user may make any necessary updates to the task and submit the updates. 
   
-8. Terminate a Task:
-![terminateTask](main_app/static/css/terminateTask.png)
- Users will be able to terminate a task once completed or if the task is no longer necessary. 
+11. Terminate a Task:
+   ![terminateTask](main_app/static/terminateTask.png)
+   Users will be able to terminate a task once completed or if the task is no longer necessary. 
 
 
 
