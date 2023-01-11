@@ -34,7 +34,7 @@ If a task needs to be completed the card will be outlined in red until it is ult
     If the user already has an account, the user will be able to log in with their credentials. 
     
 4. Profile Page
- ![profilePage](main_app/static/profilePage.png)
+   ![profilePage](main_app/static/profilePage.png)
    The user will be able to view their profile page which will display their task list and personal information. 
 
 5. Update User Page
@@ -50,7 +50,7 @@ If a task needs to be completed the card will be outlined in red until it is ult
    The user will be able to create a new task detailing the title, description, select the user adding the task, the completion status, the date added, the task due date and priority level. 
 
 8.  View All Tasks:
-    ![viewTasks](main_app/static/viewAllTask.png)
+    ![viewTasks](main_app/static/taskList.png)
     Users will be able to view all of their tasks on the "View Task List" page with specific details regarding each task will be displayed.  
 
 9.  Task Details:
