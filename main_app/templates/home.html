@@ -1,24 +1,49 @@
 {% extends 'base.html' %}
+{% load static %}
 
-    
 {% block content %}
-<div class="text-center mt-5 pt-5">
-  <h1 class="display-1">Task Terminator</h1>
-  <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi eos, deleniti dolor aperiam nostrum laboriosam.</p>
-
-  <p class="py-2">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni odio accusamus excepturi quasi, reiciendis eaque impedit doloremque quaerat placeat sed in consequatur repellat voluptate? Ipsa libero et dignissimos quidem consectetur.
-  </p>
-
-
+<div class="row">
+  <div class="col-sm-12 col-md-6 fix">
+    <h1 class="display-1">Task Terminator</h1>
+    <p class="lead mb-4">They're coming for you.</p>
+    <p class="py-2">
+      Terminate your tasks. Its time to finally manage all those pesky tasks in a reasonable fashion. <br><br> Never again will your task reminders get lost in transit in the dozens upon dozens of notifications.
+    </p>
+  </div>
+  <div class="d-none d-md-flex col-md-6 flex-column align-items-center justify-content-center w-full">
+    <img src="https://freepngimg.com/download/terminator/20902-5-terminator-transparent-background.png" alt="terminator" class="img-fluid">
+  </div>
+</div>
+<div class="row gap-2 align-items-center justify-content-around my-5">
+  <div class="col-sm-12 col-md-4 card px-3 pt-3 border-blue mb-3 card-size">
+    <img src="{% static 'undraw_task_list_6x9d.svg' %}" alt="" class="card-img-top">
+    <div class="card-body">
+      <div class="lead mb-3">List Them Out</div>
+      <p>You already have a lot of things on your plate. Let us take care of managing your tasks for you. Get reminders for to complete your tasks.</p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-4 card px-3 pt-3 border-blue mb-3 card-size">
+    <img src="{% static 'undraw_prioritise_re_r5xu.svg' %}" alt="" class="card-img-top">
+    <div class="card-body">
+      <div class="lead mb-3">Prioritize</div>
+      <p>Take a second look. Take your tasks and organize them according to what's most important.</p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-4 card px-3 pt-3 border-blue mb-3 card-size">
+    <img src="{% static 'undraw_complete_task_re_44tb.svg' %}" alt="" class="card-img-top">
+    <div class="card-body">
+      <div class="lead mb-3">Complete It</div>
+      <p>You've listed them. You've organized them. Now its time to complete it.</p>
+    </div>
+  </div>
+</div>
+<div class="d-flex flex-column justify-content-center align-items-center text-center mt-5 pb-3">
   {% if not user.is_authenticated %}
+  <h2 class="display-4 mb-4">Interested? Sign up today!</h2>
   <a class="btn btn-success" href="{% url 'sign_up'%}">Join Now!</a>
-
+  <p class="lead">Already have an account?</p>
   <a class="btn text-white" style="background-color: #0995ed" href="{% url 'login'%}">Login</a>
-  {% else %}
-  <a class="btn btn-success" href="{% url 'tasks_index' %}">View Tasks</a>
   {% endif %}
-
 </div>
 
 {% endblock content %}

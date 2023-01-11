@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 body {
-  height: 100vh;
-  width: 100vw;
   text-align: center;
   font-family: 'Quicksand', sans-serif;
 }
 
-h1 {
-  text-align: center;
-  font-family: 'Quicksand', sans-serif;
+.border-blue {
+  border: 1px solid #0995ed !important;
+}
+
+.card-size {
+  max-width: 18rem;
+  height: 430px;
 }
 
 .dropdown-menu li>a:hover {
