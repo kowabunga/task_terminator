@@ -3,10 +3,11 @@
 <li class="active breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
 <li class="active breadcrumb-item"><a href="{% url 'tasks_index' %}">All Tasks</a></li>
 
-{% if object %}
+{% if form.instance.id %}
 <li class="active breadcrumb-item">Edit Task</li>
-{% endif %}
+{% else %}
 <li class="active breadcrumb-item">Create Task</li>
+{% endif %}
 {% endblock breadcrumbs %}
 
 {% block content %}
@@ -49,10 +50,10 @@
 
 
 <script>
-  const date1 = document.querySelector('#id_date_added')
+
   const date2 = document.querySelector('#id_due_date')
 
-  date1.type = 'datetime-local'
+
   date2.type = 'datetime-local'
 </script>
 
