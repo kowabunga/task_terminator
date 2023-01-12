@@ -20,7 +20,7 @@ If a task needs to be completed the card will be outlined in red until it is ult
 ## How To Use/Wireframe (Images Attached):
 - - -
 1. Homepage/Landing Page:
-   ![homePage](main_app/static/homepage.png)
+   ![homePage](main_app/static/homePage.png)
    When the user reaches the applications homepage, they will have the option to "Join Now" or "Log In".
   
 
@@ -50,7 +50,7 @@ If a task needs to be completed the card will be outlined in red until it is ult
    The user will be able to create a new task detailing the title, description, select the user adding the task, the completion status, the date added, the task due date and priority level. 
 
 8.  View All Tasks:
-    ![viewTasks](main_app/static/taskList.png)
+    ![viewTasks](main_app/static/viewAllTasks.png)
     Users will be able to view all of their tasks on the "View Task List" page with specific details regarding each task will be displayed.  
 
 9.  Task Details:
