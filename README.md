@@ -20,7 +20,7 @@ If a task needs to be completed the card will be outlined in red until it is ult
 ## How To Use/Wireframe (Images Attached):
 - - -
 1. Homepage/Landing Page:
-   ![homePage](main_app/static/homepage.png)
+   ![homePage](main_app/static/homePage.png)
    When the user reaches the applications homepage, they will have the option to "Join Now" or "Log In".
   
 
