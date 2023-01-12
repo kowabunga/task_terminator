@@ -8,6 +8,9 @@ packages = [{include = "task_terminator"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+django-crispy-forms = "^1.14.0"
+crispy-bootstrap5 = "^0.7"
+twilio = "^7.16.1"
 
 
 [build-system]
